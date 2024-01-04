@@ -15,32 +15,45 @@ struct LoginView: View {
                 // Header
                 HeaderView(title: "Coconut List", subtitle: "A to do list to help you get things done", angle: 15, background: .pink)
                
-                
+                 
                 // Login Form
-                Form {
+             
                     if !viewModel.errorMessage.isEmpty {
                         Text(viewModel.errorMessage)
                             .foregroundStyle(.red)
                     }
+                   
                     TextField("Email Address", text: $viewModel.email)
                         .textFieldStyle(DefaultTextFieldStyle())
                         .textInputAutocapitalization(.never)
+                        .padding()
+                        .frame(width: UIScreen.main.bounds.width - 100)
+                        .background(Color(uiColor: .secondarySystemBackground))
+                    
+                   
                     SecureField("Password", text: $viewModel.password)
                         .textFieldStyle(DefaultTextFieldStyle())
+                        .padding()
+                        .frame(width: UIScreen.main.bounds.width - 100)
+                        .background(Color(uiColor: .secondarySystemBackground))
+                    
+                
                     TLButton(title: "Log In", background: .blue) {
                         viewModel.login()
                     }
-                    .padding()
-                }
-                .offset(y: -50)
+                    .offset(y:30)
+                    
+                    .frame(width: UIScreen.main.bounds.width - 100, height: 50)
+                Spacer()
                 
+           
                 // Create Account
                 VStack {
                     Text("New around here?")
                     NavigationLink("Create An Account", destination: RegisterView())
                 }
-                .padding(.bottom, 50)
-                Spacer()
+                .padding(.bottom, 30)
+                
             }
         }
     }

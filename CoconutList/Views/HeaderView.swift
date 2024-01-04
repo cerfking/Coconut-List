@@ -13,24 +13,25 @@ struct HeaderView: View {
     let angle: Double
     let background: Color
     var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 0)
-                .foregroundColor(background)
-                .rotationEffect(Angle(degrees: angle))
+        
+           
     
             VStack {
+                Image("Coconut")
+                    .resizable()
+                    .scaledToFit()
                 Text(title)
-                    .foregroundColor(.white)
+                    .foregroundColor(.primary)
                     .font(.system(size: 50))
                     .bold()
                 Text(subtitle)
-                    .foregroundColor(.white)
+                    .foregroundColor(.secondary)
                     .font(.system(size: 20))
             }
-            .padding(.top, 80)
-        }
-        .frame(width: UIScreen.main.bounds.width * 3, height: 350)
-        .offset(y: -100)
+            .padding(.top, 50)
+        
+        .frame(width: UIScreen.main.bounds.width, height: 300)
+        .offset(y: -50)
     }
 }
 

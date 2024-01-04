@@ -6,9 +6,10 @@
 //
 
 import Foundation
-struct User: Codable {
+struct User: Codable, Identifiable {
     let id: String
     let name: String
     let email: String
     let joined: TimeInterval
+    var avatar: String = "https://cdn-icons-png.flaticon.com/512/5556/5556499.png"
 }
